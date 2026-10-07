@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybernetic AR HUD Engine</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #050505;
+            color: #00ffb2;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            border: 2px solid #00ffb2;
+            box-shadow: 0 0 20px rgba(0, 255, 178, 0.2);
+        }
+        video, canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1280px;
+            height: 720px;
+        }
+        video {
+            transform: serialize;
+            transform: scaleX(-1); /* Mirror view */
+        }
+        canvas {
+            z-index: 10;
+        }
+    </style>
+    <!-- Load MediaPipe Solutions via CDN -->
+    <script src="https://jsdelivr.net" crossorigin="anonymous"></script>
+    <script src="https://jsdelivr.net" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="container">
+        <video id="webcam" autoplay playsinline></video>
+        <canvas id="hud_canvas" width="1280" height="720"></canvas>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
